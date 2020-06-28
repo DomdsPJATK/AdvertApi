@@ -1,4 +1,5 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using AdvertApi.Configurations;
+using Microsoft.EntityFrameworkCore;
 
 namespace AdvertApi.Models
 {
@@ -15,6 +16,11 @@ namespace AdvertApi.Models
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);
+
+            modelBuilder.ApplyConfiguration(new ClientEfConfiguration());
+            modelBuilder.ApplyConfiguration(new BuildingEfConfiguration());
+            modelBuilder.ApplyConfiguration(new BannerEfConfiguration());
+            modelBuilder.ApplyConfiguration(new CampaignEfConfiguration());
         }
     }
 }
