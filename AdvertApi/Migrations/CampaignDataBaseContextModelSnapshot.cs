@@ -27,7 +27,8 @@ namespace AdvertApi.Migrations
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
                     b.Property<decimal>("Area")
-                        .HasColumnType("decimal(18,2)");
+                        .HasColumnType("decimal(6,2)")
+                        .HasPrecision(6, 2);
 
                     b.Property<int>("IdCampaign")
                         .HasColumnType("int");
@@ -36,7 +37,8 @@ namespace AdvertApi.Migrations
                         .HasColumnType("int");
 
                     b.Property<double>("Price")
-                        .HasColumnType("float");
+                        .HasColumnType("float")
+                        .HasPrecision(6, 2);
 
                     b.HasKey("IdAdvertisement");
 
@@ -53,13 +55,16 @@ namespace AdvertApi.Migrations
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
                     b.Property<string>("City")
+                        .IsRequired()
                         .HasColumnType("nvarchar(100)")
                         .HasMaxLength(100);
 
                     b.Property<double>("Height")
-                        .HasColumnType("float");
+                        .HasColumnType("float")
+                        .HasPrecision(6, 2);
 
                     b.Property<string>("Street")
+                        .IsRequired()
                         .HasColumnType("nvarchar(100)")
                         .HasMaxLength(100);
 
@@ -88,7 +93,8 @@ namespace AdvertApi.Migrations
                         .HasColumnType("int");
 
                     b.Property<double>("PricePerSquareMarker")
-                        .HasColumnType("float");
+                        .HasColumnType("float")
+                        .HasPrecision(6, 2);
 
                     b.Property<DateTime>("StartDate")
                         .HasColumnType("datetime2");

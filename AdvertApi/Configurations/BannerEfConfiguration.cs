@@ -11,7 +11,10 @@ namespace AdvertApi.Configurations
             builder.HasKey(p => p.IdAdvertisement);
             builder.Property(p => p.IdAdvertisement).ValueGeneratedOnAdd();
 
+            
             builder.HasOne(p => p.Campaign).WithMany(p => p.Banners).HasForeignKey(p => p.IdCampaign);
+            builder.Property(p => p.Price).HasPrecision(6, 2).IsRequired();
+            builder.Property(p => p.Area).HasPrecision(6, 2).IsRequired();
         }
     }
 }

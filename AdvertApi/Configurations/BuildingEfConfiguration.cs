@@ -9,8 +9,11 @@ namespace AdvertApi.Configurations
         public void Configure(EntityTypeBuilder<Building> builder)
         {
             builder.HasKey(p => p.IdBuilding);
-            builder.Property(p => p.Street).HasMaxLength(100);
-            builder.Property(p => p.City).HasMaxLength(100);
+            builder.Property(p => p.Street).HasMaxLength(100).IsRequired();
+            builder.Property(p => p.StreetNumber).IsRequired();
+            builder.Property(p => p.City).HasMaxLength(100).IsRequired();
+            builder.Property(p => p.Height).HasPrecision(6, 2);
+
         }
     }
 }
